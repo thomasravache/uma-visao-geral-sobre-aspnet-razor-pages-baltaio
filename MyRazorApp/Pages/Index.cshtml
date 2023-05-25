@@ -1,11 +1,23 @@
 @page
-@model MyRazorApp.Index
+@model MyRazorApp.Pages.Index
+
 @{
-    ViewData["Title"] = "Index";
+    Layout = null;
 }
 
-<h1>@ViewData["Title"]</h1>
+<!DOCTYPE html>
+<html lang="en">
 
-<div>
+<head>
+    <title>Document</title>
+</head>
 
-</div>
+<body>
+    @for (var i = 0; i <= 10; i++)
+    {
+        <p>Item @i</p>
+        // precisa sempre usar chaves
+    }
+</body>
+
+</html>
