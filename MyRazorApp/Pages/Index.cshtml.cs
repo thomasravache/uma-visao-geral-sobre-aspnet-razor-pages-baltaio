@@ -11,7 +11,15 @@ public class Index : PageModel
     {
         await Task.Delay(5000);
 
-
+        for (int index = 0; index <= 100; index++)
+        {
+            Categories.Add(new Category
+            (
+                Id: index + 1,
+                Title: $"Categoria {index}",
+                Price: index*18.95M
+            ));
+        }
     }
 
     public void OnPost() // Sempre que fizer um post na pagina ele passa aqui - enviar
