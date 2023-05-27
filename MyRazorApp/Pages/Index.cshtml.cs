@@ -1,29 +1,28 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Logging;
 
-namespace MyRazorApp.Pages
+namespace MyRazorApp.Pages;
+
+public class Index : PageModel
 {
-  public class Index : PageModel
-  {
-    private readonly ILogger<Index> _logger;
+    public List<Category> Categories { get; set; } = new(); // syntax sugar de new List<Category>();
 
-    public Index(ILogger<Index> logger)
+    public async Task OnGet() // Sempre que fizer um get na pagina ele passa nesse método - obter
     {
-      _logger = logger;
-    }
+        await Task.Delay(5000);
 
-    public void OnGet() // Sempre que fizer um get na pagina ele passa nesse método - obter
-    {
+
     }
 
     public void OnPost() // Sempre que fizer um post na pagina ele passa aqui - enviar
     {
 
     }
-  }
 }
+
+// Record -> classe enxuta -> não tem comportamento
+public record Category(
+    int Id,
+    string Title,
+    decimal Price
+);
