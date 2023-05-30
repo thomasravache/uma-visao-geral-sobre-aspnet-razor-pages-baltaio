@@ -2,9 +2,10 @@
 @* sempre colocar o @pages quando é uma página *@
 @page
 
+@using System.Globalization
 @* Aponta pra classe em c# *@
 @model MyRazorApp.Pages.Index
-@using System.Globalization
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 @{
     Layout = null;
@@ -20,17 +21,8 @@
 <body>
     @* @Model chama o @model em cima deste arquivo  *@
     <div>
-        <ul>
-            <li>
-                <a href="~/">Home</a>
-            </li>
-            <li>
-                <a href="~/About">Sobre</a>
-            </li>
-            <li>
-                <a href="~/Login">Login</a>
-            </li>
-        </ul>
+        @* Tag Helpers do .NET: <asp-net> por exemplo *@
+        <partial name="Shared/NavMenuPartial.cshtml" />
         <h1>Categorias</h1>
         <table>
             <thead>
