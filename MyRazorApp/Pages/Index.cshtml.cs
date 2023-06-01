@@ -9,7 +9,7 @@ public class Index : PageModel
 
     public async Task OnGet() // Sempre que fizer um get na pagina ele passa nesse método - obter
     {
-        await Task.Delay(5000);
+        await Task.Delay(2000);
 
         for (int index = 0; index <= 100; index++)
         {

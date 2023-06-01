@@ -6,42 +6,28 @@
 @model MyRazorApp.Pages.Index
 
 @{
-    Layout = null;
+    Layout = "Shared/_Layout";
 }
 
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>MyRazorApp</title>
-</head>
-
-<body>
-    @* @Model chama o @model em cima deste arquivo  *@
-    <div>
-        @* Tag Helpers do .NET: <asp-net> por exemplo *@
-        <partial name="Shared/NavMenuPartial.cshtml" />
-        <h1>Categorias</h1>
-        <table>
-            <thead>
+<div>
+    <h1>Categorias</h1>
+    <table>
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Title</td>
+                <td>Price</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var category in Model.Categories)
+            {
                 <tr>
-                    <td>ID</td>
-                    <td>Title</td>
-                    <td>Price</td>
+                    <td>@category.Id</td>
+                    <td>@category.Title</td>
+                    <td>@category.Price.ToString("C", new CultureInfo("pt-BR"))</td>
                 </tr>
-            </thead>
-            <tbody>
-                @foreach(var category in Model.Categories)
-                {
-                    <tr>
-                        <td>@category.Id</td>
-                        <td>@category.Title</td>
-                        <td>@category.Price.ToString("C", new CultureInfo("pt-BR"))</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
-</body>
-
-</html>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,22 @@
+@* Serve de base para as outras páginas *@
+@* - Não tem o @page *@
+@* Outras páginas que vão consumi-lo *@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>MyRazorApp</title>
+</head>
+
+<body>
+    <header>
+        <partial name="NavMenuPartial.cshtml" />
+    </header>
+    <main>
+        @* Vai renderizar o corpo da página que está chamando esse layout *@
+        @RenderBody()
+    </main>
+</body>
+
+</html>
