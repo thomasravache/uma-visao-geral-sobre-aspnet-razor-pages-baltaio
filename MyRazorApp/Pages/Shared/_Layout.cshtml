@@ -11,6 +11,12 @@
         principal através dele
     *@
     <title>@ViewData["Title"] - MyRazorApp</title>
+    @*
+        asp-append-version gera um hash pro css, quando tiver um novo deployment
+        vai trocar o hash e aí o browser entende que precisa pegar a nova versão do css do servidor
+        ao invés de pegar o cacheado
+    *@
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true">
 </head>
 
 <body>
