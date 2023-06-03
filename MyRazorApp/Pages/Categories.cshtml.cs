@@ -5,19 +5,28 @@ public class Categories : PageModel
 {
     public List<Category> CategoryList { get; set; } = new(); // syntax sugar de new List<Category>();
 
-    public async Task OnGet() // Sempre que fizer um get na pagina ele passa nesse método - obter
+    public void OnGet(
+        int skip,
+        int take
+    ) // Sempre que fizer um get na pagina ele passa nesse método - obter
     {
-        await Task.Delay(2000);
+        // await Task.Delay(2000);
 
-        for (int index = 0; index <= 100; index++)
+        var temp = new List<Category>();
+        for (int index = 0; index <= 1787; index++)
         {
-            CategoryList.Add(new Category
+            temp.Add(new Category
             (
                 Id: index + 1,
                 Title: $"Categoria {index}",
                 Price: index*18.95M
             ));
         }
+
+        CategoryList = temp
+            .Skip(skip)
+            .Take(take)
+            .ToList();
     }
 
     public void OnPost() // Sempre que fizer um post na pagina ele passa aqui - enviar
