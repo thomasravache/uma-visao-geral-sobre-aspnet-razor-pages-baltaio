@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace MyRazorApp.Pages;
@@ -5,9 +6,10 @@ public class Categories : PageModel
 {
     public List<Category> CategoryList { get; set; } = new(); // syntax sugar de new List<Category>();
 
+    // Se não for especificado de onde vem os parametros o .net vai procurar nas rotas, queries e etc
     public void OnGet(
-        int skip,
-        int take
+        [FromRoute] int skip = 0,
+        [FromRoute] int take = 25
     ) // Sempre que fizer um get na pagina ele passa nesse método - obter
     {
         // await Task.Delay(2000);
