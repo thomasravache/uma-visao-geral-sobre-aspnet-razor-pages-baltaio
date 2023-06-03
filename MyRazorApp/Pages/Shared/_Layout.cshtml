@@ -31,6 +31,15 @@
         @* Vai renderizar o corpo da página que está chamando esse layout *@
         @RenderBody()
     </main>
+
+    <footer>
+        2023 - Powered By Thomas Ravache
+    </footer>
+
+    @* carregar js de forma que ele renderize só no final da página, que é uma boa prática
+        isso serve não só pra javascript como para outras coisas também
+     *@
+    @RenderSection("scripts", false)
 </body>
 
 </html>
